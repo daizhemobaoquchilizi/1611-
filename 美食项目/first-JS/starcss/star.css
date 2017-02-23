@@ -1,0 +1,84 @@
+/*star.css*/
+body{
+	width: 1333px;
+	height: 750px;
+	animation: star 5s ease;
+}
+@keyframes star {
+	from{background: rgba(0,0,0,1)};
+	to{background: rgba(0,0,0,0)};
+}
+.boxs{
+	width:800px;height:600px;
+	position:absolute;
+	left:0;right:0;
+	top:0;bottom:0;
+	margin:auto;
+	perspective:800px;
+	perspective-origin:bottom;
+	animation: show1 3s linear;
+}
+@keyframes show1 {
+	0%{
+		transform: scale(0);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+/*盒子出现动画*/
+.boxs>div{
+	animation: show2 3s linear;
+}
+@keyframes show2 {
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+/*开始和关闭按钮的显示*/
+.open{
+	position: absolute;
+	left:100px;
+	top:200px;
+	animation: open 2s linear infinite;
+}
+.open:hover{
+	box-shadow:0 1px 2px 0 rgba(0,0,0,0.1), 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+@keyframes open {
+	0{
+		transform: translate(0,0px);
+		background: #fbb;
+	}
+	25%{
+		transform: translate(0,5px);
+		background: #faa;
+	}
+	50%{
+		transform: translate(0,0px);
+		background: #fbb;
+	}
+	75%{
+		transform: translate(0,-5px);
+		background: #faa;
+	}
+	100%{
+		transform: translate(0,0px);
+		background: #fbb;
+	}
+}
+.close{
+	position: absolute;
+	top: 32px;
+	left: 1050px;
+	z-index: 2;
+	color:#0fa;
+	cursor: pointer;
+	transition: transform 1s;
+}
+.close:hover{
+	transform: rotate(180deg);
+}
